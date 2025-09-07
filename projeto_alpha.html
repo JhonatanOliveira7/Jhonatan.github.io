@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio Jhonatan Oliveira</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Jhonatan Oliveira</h1>
+    <p>Técnico de Informática | Estudante de tecnologia</p>
+  </header>
+
+  <!-- Sobre Mim -->
+  <section id="sobre">
+    <h2>Sobre Mim</h2>
+    <p>Olá! Meu nome é Jhonatan Oliveira e sou apaixonado por tecnologia e análise de dados.
+Tenho experiência com SQL, além de conhecimentos em manutenção e suporte em informática.
+Nos meus momentos livres, gosto de estudar e explorar novas ideias criativas que ampliem minhas habilidades e visão de futuro.</p>
+  </section>
+
+  <!-- Projetos -->
+  <section id="projetos">
+    <h2>Meus Projetos</h2>
+    <div class="projetos-container">
+      <article class="projeto">
+        <h3>Projeto α </h3>
+        <p>Descrição breve do projeto α.</p>
+        <a href="#" target="_blank">Ver Projeto</a>
+      </article>
+      <article class="projeto">
+        <h3>Projeto β</h3>
+        <p>Descrição breve do projeto β.</p>
+        <a href="#" target="_blank">Ver Projeto</a>
+      </article>
+      <article class="projeto">
+        <h3>Projeto C</h3>
+        <p>Descrição breve do projeto C.</p>
+        <a href="#" target="_blank">Ver Projeto</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato">
+    <h2>Entre em Contato</h2>
+    <form id="formContato">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem"></textarea>
+
+      <button type="submit" id="btnEnviar">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Rodapé -->
+  <footer>
+    <p>&copy; 2025 - Desenvolvido por Jhonatan Oliveira</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+<script>
+
+  // Encolher o header ao rolar a página
+window.addEventListener("scroll", function () {
+  const header = document.querySelector("header");
+  if (window.scrollY > 50) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
+
+// Animações de entrada das seções
+const sections = document.querySelectorAll(".fade-in");
+
+function checkSections() {
+  const triggerBottom = window.innerHeight * 0.85;
+  sections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < triggerBottom) {
+      section.classList.add("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", checkSections);
+window.addEventListener("load", checkSections);
+
+// Simulação de envio de formulário
+document.getElementById("formContato").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("nome").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const mensagem = document.getElementById("mensagem").value.trim();
+
+    if (nome === "" || email === "" || mensagem === "") {
+      alert("⚠️ Por favor, preencha todos os campos antes de enviar.");
+      return;
+    }
+
+    alert("✅ Mensagem enviada com sucesso! 🚀");
+    this.reset(); // limpa o formulário após enviar
+  });
+
+</script>
+
+</body>
+</html>
